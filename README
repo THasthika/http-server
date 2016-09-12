@@ -1,0 +1,18 @@
+Torrent Client
+==============
+
+This is a hobby project, which is mainly in C. I'm using this project as a way to learn some advanced linux and C programming.
+This torrent client is a program that is built from ground up without using any 3rd party libraries. With the exception of Sockets, OpenSSL for hashing.
+
+Build
+=====
+
+./autogen.sh
+./configure
+make
+
+Testing
+=======
+
+make check
+
