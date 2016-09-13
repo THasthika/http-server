@@ -22,6 +22,7 @@ void handle_request(int fd)
 			done = 1;
 			break;
 		}
+		printf("%s\n", buffer);
 		if(write(fd, buffer, count) == -1) {
 			perror("write");
 			done = 1;

@@ -4,7 +4,8 @@ AM_LDFLAGS = -g3
 bin_PROGRAMS = http-server
 
 http_server_SOURCES = main.c\
-		      request_handler.c request_handler.h
+		      request_handler.c request_handler.h\
+		      dstring.c dstring.h
 http_server_CFLAGS = $(AM_CFLAGS)
 http_server_LDFLAGS = $(AM_LDFLAGS)
 http_server_LDADD = 

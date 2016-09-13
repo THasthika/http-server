@@ -83,7 +83,7 @@ int main(int argc, char **argv)
 	while(!exit_loop)
 	{
 		n = epoll_wait(epollfd, events, MAXEVENTS, 1000);
-		printf("%d events\n", n);
+		/*printf("%d events\n", n);*/
 		for(i = 0; i < n; i++) {
 			if((events[i].events & EPOLLERR) || (events[i].events & EPOLLHUP) || !(events[i].events & EPOLLIN)) {
 				fprintf(stderr, "epoll error\n");

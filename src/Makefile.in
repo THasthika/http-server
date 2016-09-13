@@ -101,7 +101,8 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_http_server_OBJECTS = http_server-main.$(OBJEXT) \
-	http_server-request_handler.$(OBJEXT)
+	http_server-request_handler.$(OBJEXT) \
+	http_server-dstring.$(OBJEXT)
 http_server_OBJECTS = $(am_http_server_OBJECTS)
 http_server_DEPENDENCIES =
 http_server_LINK = $(CCLD) $(http_server_CFLAGS) $(CFLAGS) \
@@ -261,7 +262,8 @@ top_srcdir = @top_srcdir@
 AM_CFLAGS = -std=gnu11 -g3
 AM_LDFLAGS = -g3
 http_server_SOURCES = main.c\
-		      request_handler.c request_handler.h
+		      request_handler.c request_handler.h\
+		      dstring.c dstring.h
 
 http_server_CFLAGS = $(AM_CFLAGS)
 http_server_LDFLAGS = $(AM_LDFLAGS)
@@ -352,6 +354,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/http_server-dstring.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/http_server-main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/http_server-request_handler.Po@am__quote@
 
@@ -398,6 +401,20 @@ http_server-request_handler.obj: request_handler.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='request_handler.c' object='http_server-request_handler.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(http_server_CFLAGS) $(CFLAGS) -c -o http_server-request_handler.obj `if test -f 'request_handler.c'; then $(CYGPATH_W) 'request_handler.c'; else $(CYGPATH_W) '$(srcdir)/request_handler.c'; fi`
+
+http_server-dstring.o: dstring.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(http_server_CFLAGS) $(CFLAGS) -MT http_server-dstring.o -MD -MP -MF $(DEPDIR)/http_server-dstring.Tpo -c -o http_server-dstring.o `test -f 'dstring.c' || echo '$(srcdir)/'`dstring.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/http_server-dstring.Tpo $(DEPDIR)/http_server-dstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='dstring.c' object='http_server-dstring.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(http_server_CFLAGS) $(CFLAGS) -c -o http_server-dstring.o `test -f 'dstring.c' || echo '$(srcdir)/'`dstring.c
+
+http_server-dstring.obj: dstring.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(http_server_CFLAGS) $(CFLAGS) -MT http_server-dstring.obj -MD -MP -MF $(DEPDIR)/http_server-dstring.Tpo -c -o http_server-dstring.obj `if test -f 'dstring.c'; then $(CYGPATH_W) 'dstring.c'; else $(CYGPATH_W) '$(srcdir)/dstring.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/http_server-dstring.Tpo $(DEPDIR)/http_server-dstring.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='dstring.c' object='http_server-dstring.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(http_server_CFLAGS) $(CFLAGS) -c -o http_server-dstring.obj `if test -f 'dstring.c'; then $(CYGPATH_W) 'dstring.c'; else $(CYGPATH_W) '$(srcdir)/dstring.c'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique
