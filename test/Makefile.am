@@ -9,7 +9,7 @@ TESTS = $(check_PROGRAMS)
 http_request_parser_SOURCES = http_request_parser.c
 http_request_parser_CFLAGS = $(AM_CFLAGS)
 http_request_parser_LDFLAGS = $(AM_LDFLAGS)
-http_request_parser_LDADD = 
+http_request_parser_LDADD = ../src/dstring.o
 
 check_dstring_SOURCES = check_dstring.c
 check_dstring_CFLAGS = $(AM_CFLAGS)
